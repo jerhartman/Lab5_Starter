@@ -35,11 +35,13 @@ function init() {
     }
   });
   let button = document.querySelector('button');
+  const jsConfetti = new JSConfetti();
   button.addEventListener('click', function(){
     audio.play();
     if(selector.options[selector.selectedIndex].value == 'party-horn') {
-      const jsConfetti = new JSConfetti()
-      jsConfetti.addConfetti()
+      if(inputVol.value > 0) {
+        jsConfetti.addConfetti();
+      }
     }
   })
 }
